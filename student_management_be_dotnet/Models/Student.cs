@@ -4,7 +4,7 @@ namespace student_management_be_dotnet.Models;
 
 public class Student
 {
-    public int Id { get; set; }
+    public long Id { get; set; }
 
     [Required]
     [MaxLength(100)]
@@ -18,4 +18,6 @@ public class Student
     public DateTime DateOfBirth { get; set; }
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+    public DateTime UpdatedAt { get; set; }
 }
