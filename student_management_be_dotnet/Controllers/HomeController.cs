@@ -1,14 +1,20 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using student_management_be_dotnet.Data;
 using student_management_be_dotnet.Models;
 
 namespace student_management_be_dotnet.Controllers;
 
-public class HomeController : Controller
+public class HomeController(AppDbContext dbContext) : Controller
 {
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var students = await dbContext.Students
+            .AsNoTracking()
+            .ToListAsync();
+
+        return View(students);
     }
 
     public IActionResult Privacy()

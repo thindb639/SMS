@@ -15,9 +15,13 @@ public class Student
     [EmailAddress]
     public string Email { get; set; } = string.Empty;
 
+    public long ClassId { get; set; }
+
     public DateTime DateOfBirth { get; set; }
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
     public DateTime UpdatedAt { get; set; }
+
+    public Class? Class { get; set; }
 }
