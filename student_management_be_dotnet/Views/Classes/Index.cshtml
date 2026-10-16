@@ -1,0 +1,35 @@
+@model IEnumerable<student_management_be_dotnet.Models.Class>
+@{
+    ViewData["Title"] = "Classes";
+}
+
+<h1>Classes</h1>
+
+@if (!Model.Any())
+{
+    <p class="text-muted">No classes found.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Teacher</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.Id</td>
+                    <td>@c.Code</td>
+                    <td>@c.Name</td>
+                    <td>@(c.Teacher is null ? "—" : $"{c.Teacher.FirstName} {c.Teacher.LastName}")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
