@@ -1,13 +1,37 @@
-@model IEnumerable<student_management_be_dotnet.Models.Class>
+@model ClassIndexViewModel
 @{
-    ViewData["Title"] = "Classes";
+    ViewData["Title"] = "Lớp học";
 }
 
-<h1>Classes</h1>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Lớp học</h1>
+    <a asp-action="Create" class="btn btn-primary">Thêm lớp</a>
+</div>
 
-@if (!Model.Any())
+@if (TempData["Success"] is string success)
 {
-    <p class="text-muted">No classes found.</p>
+    <div class="alert alert-success">@success</div>
+}
+
+<form asp-action="Index" method="get" class="row g-2 align-items-end mb-3">
+    <div class="col-md-4">
+        <label asp-for="Filter.Search" class="form-label"></label>
+        <input asp-for="Filter.Search" class="form-control" placeholder="Tìm theo tên hoặc mã lớp" />
+    </div>
+    <div class="col-md-3">
+        <label asp-for="Filter.TeacherId" class="form-label"></label>
+        <select asp-for="Filter.TeacherId" asp-items="Model.TeacherOptions" class="form-select">
+            <option value="">Tất cả</option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <button type="submit" class="btn btn-outline-primary">Search</button>
+    </div>
+</form>
+
+@if (Model.Classes.Count == 0)
+{
+    <p class="text-muted">Không có lớp nào.</p>
 }
 else
 {
@@ -15,13 +39,13 @@ else
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Code</th>
-                <th>Name</th>
-                <th>Teacher</th>
+                <th>Mã lớp</th>
+                <th>Tên lớp</th>
+                <th>Giáo viên</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var c in Model)
+            @foreach (var c in Model.Classes)
             {
                 <tr>
                     <td>@c.Id</td>
@@ -32,4 +56,6 @@ else
             }
         </tbody>
     </table>
+
+    <p class="text-muted">Tổng: @Model.Classes.Count</p>
 }
