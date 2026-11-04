@@ -14,6 +14,11 @@ public class Teacher
 
     public Gender Gender {get;set;}
 
+    public string GetBirthDay()
+    {
+        return this.DateOfBirth.ToString();
+    }
+
     public ICollection<Class>? Class {get;}
 }
 
