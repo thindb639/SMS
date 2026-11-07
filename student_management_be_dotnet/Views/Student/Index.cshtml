@@ -1,114 +1,79 @@
-<ul> @foreach (var student in Model)
-    {
-         <li>
-            <link rel="stylesheet" href="Create.cshtml">
-          <body>
-    <header class="header">
-        <div class="header-container">
-            <a href="index.html" class="brand-logo">TÊN WEBSITE</a>
-            <nav class="navbar">
-                <a href="#">Trang chủ</a>
-                <a href="#">Danh mục</a>
-                <a href="#">Blog</a>
-                <a href="index.html" class="active">Học viên</a>
-                <a href="#">Liên hệ</a>
-            </nav>
-        </div>
-    </header>
+<ul>
+    <li>
+        <link rel="stylesheet" href="Create.cshtml">
 
-    <main class="container">
-        <div class="page-top-action">
-            <h1 class="page-title">Danh sách học viên</h1>
-            <a href="add-student.html" class="btn btn-primary">+ Thêm học viên</a>
-        </div>
+        <body>
+            <header class="header">
+                <div class="header-container">
+                    <a href="index.html" class="brand-logo">TÊN WEBSITE</a>
+                    <nav class="navbar">
+                        <a href="#">Trang chủ</a>
+                        <a href="#">Danh mục</a>
+                        <a href="#">Blog</a>
+                        <a href="index.html" class="active">Học viên</a>
+                        <a href="#">Liên hệ</a>
+                    </nav>
+                </div>
+            </header>
 
-        <div class="search-box-wrap">
-            <input 
-                type="text" 
-                class="form-control" 
-                placeholder="Tìm theo tên hoặc mã học viên..."
-            >
-        </div>
+            <main class="container">
+                <div class="page-top-action">
+                    <h1 class="page-title">Danh sách học viên</h1>
+                    <a href="/sinh-vien/tao-sinh-vien" class="btn btn-primary">+ Thêm học viên</a>
+                </div>
 
-        <div class="table-container">
-            <table class="custom-table">
-                <thead>
-                    <tr>
-                        <th>Mã HV</th>
-                        <th>Họ và tên</th>
-                        <th>Ngày sinh</th>
-                        <th>Giới tính</th>
-                        <th>Lớp</th>
-                        <th>Số điện thoại</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>HV001</strong></td>
-                        <td>
-                            <div class="user-cell">
-                                <img src="https://scontent.fhan14-4.fna.fbcdn.net/v/t1.15752-9/857315562_4746331889025129_1226665753508552667_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1536&ctp=s2048x1536&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFrB8FdZhmXssux7err8ybF-3awjW4qLxD7drCNbiovEHufA7civHzmYpnTHHZUKIeIiMellRg63BA0spss6bA7&_nc_ohc=7AXpFEeLH4sQ7kNvwEp88W2&_nc_oc=AdpF2A6LmQI26eW4lIKouG1dS8X0RKMIMoxCA_jDCDsX5vR1ilhCt7-s4PZcLCO2dvg&_nc_zt=23&_nc_ht=scontent.fhan14-4.fna&_nc_ss=7b2a8&oh=03_Q7cD6wG_5UstwMOj9uzZpnlqEjASKbvnJYM6-V_m2OFcjTpP3A&oe=6B08446D" alt="Avatar" class="user-avatar">
-                                <span>Nguyễn Đỗ Thu Trang</span>
-                            </div>
-                        </td>
-                        <td>12/05/2007</td>
-                        <td><span class="badge badge-nu">Nữ</span></td>
-                        <td>HTML/CSS cơ bản</td>
-                        <td>0901 234 567</td>
-                        <td class="text-right">
-                            <a href="student-detail.html" class="view-detail-link">Xem chi tiết &rarr;</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>HV002</strong></td>
-                        <td>
-                            <div class="user-cell">
-                                <img src="https://scontent.fhan14-5.fna.fbcdn.net/v/t1.15752-9/852243080_1649871146779279_6527820347903388207_n.jpg?stp=dst-jpg_tt6&cstp=mx4096x3072&ctp=s2048x2048&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeHNDPSHKHrH8vN5bmd18d8wbK2_yTFQamhsrb_JMVBqaGcdnBflf3JxCkSxLag6nGSOFwu1E_NqmTk6m_VA_yBN&_nc_ohc=KIgdd0Gsk6EQ7kNvwFdojBu&_nc_oc=Adp6LxkHqpFoJwhVqbsXCHYl1mzj9PUX8wcaVIMw2Z8i_5bS2x2dWTwVE-19WCdaoOw&_nc_zt=23&_nc_ht=scontent.fhan14-5.fna&_nc_ss=7b2a8&oh=03_Q7cD6wEifGwluaV-9bouCvFamqLHVuc66q8jfavFmcqQ-eYKRQ&oe=6B08292F" alt="Avatar" class="user-avatar">
-                                <span>Đào Khánh Huyền</span>
-                            </div>
-                        </td>
-                        <td>24/11/2007</td>
-                        <td><span class="badge badge-nu">Nữ</span></td>
-                        <td>JavaScript nâng cao</td>
-                        <td>0912 345 678</td>
-                        <td class="text-right">
-                            <a href="student-detail.html" class="view-detail-link">Xem chi tiết &rarr;</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>HV003</strong></td>
-                        <td>
-                            <div class="user-cell">
-                                <img src="https://scontent.fhan14-4.fna.fbcdn.net/v/t1.15752-9/848270673_1453342003577027_8783762407640798483_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1536&ctp=s2048x1536&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeHAkhVGuTWWLTadyzZ0TxZxkiODenLcnTKSI4N6ctydMrs8eQPWCCtkUBi0tiz9XewaYa-njozbauLosUl5lza3&_nc_ohc=qNIs6DP89VAQ7kNvwGoqw9l&_nc_oc=Adrbseo3ayftrR8ycdboZLGZAVunZd-JDJLkVBzletaauRbcGiQIpHgEOAFQjt4Zzwg&_nc_zt=23&_nc_ht=scontent.fhan14-4.fna&_nc_ss=7b2a8&oh=03_Q7cD6wFevBtZMFIuyYYOyje3OKlIP2YuppYB75OPlZIk0y_SIA&oe=6B081CE6" alt="Avatar" class="user-avatar">
-                                <span>Trịnh Thị Phương</span>
-                            </div>
-                        </td>
-                        <td>03/02/2007</td>
-                        <td><span class="badge badge-nam">Nam</span></td>
-                        <td>Git & GitHub</td>
-                        <td>0987 654 321</td>
-                        <td class="text-right">
-                            <a href="student-detail.html" class="view-detail-link">Xem chi tiết &rarr;</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                <div class="search-box-wrap">
+                    <input type="text" class="form-control" placeholder="Tìm theo tên hoặc mã học viên...">
+                </div>
 
-        <div class="pagination">
-            <button class="page-btn" disabled>&larr;</button>
-            <button class="page-btn active">1</button>
-            <button class="page-btn">2</button>
-            <button class="page-btn">&rarr;</button>
-        </div>
-    </main>
+                <div class="table-container">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>Mã HV</th>
+                                <th>Họ và tên</th>
+                                <th>Ngày sinh</th>
+                                <th>Giới tính</th>
+                                <th>Lớp</th>
+                                <th>Số điện thoại</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(Student student in Model){
+                            <tr>
+                                <td><strong>@student.Id</strong></td>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="https://scontent.fhan14-4.fna.fbcdn.net/v/t1.15752-9/857315562_4746331889025129_1226665753508552667_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1536&ctp=s2048x1536&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFrB8FdZhmXssux7err8ybF-3awjW4qLxD7drCNbiovEHufA7civHzmYpnTHHZUKIeIiMellRg63BA0spss6bA7&_nc_ohc=7AXpFEeLH4sQ7kNvwEp88W2&_nc_oc=AdpF2A6LmQI26eW4lIKouG1dS8X0RKMIMoxCA_jDCDsX5vR1ilhCt7-s4PZcLCO2dvg&_nc_zt=23&_nc_ht=scontent.fhan14-4.fna&_nc_ss=7b2a8&oh=03_Q7cD6wG_5UstwMOj9uzZpnlqEjASKbvnJYM6-V_m2OFcjTpP3A&oe=6B08446D"
+                                             alt="Avatar" class="user-avatar">
+                                        <span>@student.Name</span>
+                                    </div>
+                                </td>
+                                <td>@student.DateOfBirth</td>
+                                <td><span class="badge badge-nu">Nữ</span></td>
+                                <td>@student.Class?.Name</td>
+                                <td>0901 234 567</td>
+                                <td class="text-right">
+                                    <a href="student-detail.html" class="view-detail-link">Xem chi tiết &rarr;</a>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
 
-    <footer class="footer">
-        <p>&copy; 2026 Tên Website. All rights reserved.</p>
-    </footer>
-</body>
-        </li>
-    }
-   
+                <div class="pagination">
+                    <button class="page-btn" disabled>&larr;</button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">&rarr;</button>
+                </div>
+            </main>
+
+            <footer class="footer">
+                <p>&copy; 2026 Tên Website. All rights reserved.</p>
+            </footer>
+        </body>
+    </li>
 </ul>

@@ -12,7 +12,7 @@ public class Teacher
 
     public DateOnly? DateOfBirth {get; set;} 
 
-    public Gender Gender {get;set;}
+    private Gender Gender {get;set;}
 
     public string GetBirthDay()
     {
