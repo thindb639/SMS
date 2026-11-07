@@ -12,7 +12,12 @@ public class Teacher
 
     public DateOnly? DateOfBirth {get; set;} 
 
-    public Gender Gender {get;set;}
+    private Gender Gender {get;set;}
+
+    public string GetBirthDay()
+    {
+        return this.DateOfBirth.ToString();
+    }
 
     public ICollection<Class>? Class {get;}
 }
