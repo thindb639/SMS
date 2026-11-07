@@ -1,0 +1,10 @@
+/* Chỉ được load ở trang Classes/Index (qua @section Styles) */
+
+.classes-table thead th {
+    background-color: #f1f5f9;
+    white-space: nowrap;
+}
+
+.classes-table tbody tr:hover {
+    background-color: #e7f1ff;
+}
