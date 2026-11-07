@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+l
+=======
 # CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
@@ -34,3 +37,4 @@ There is no test project yet. If one is added (e.g. `dotnet new xunit`, then `do
 - Static client libraries (Bootstrap, jQuery, jQuery Validation) are vendored under `wwwroot/lib/` rather than installed via a package manager.
 - Config: `appsettings.json` with `appsettings.Development.json` overrides; launch profiles set `ASPNETCORE_ENVIRONMENT=Development`.
 
+>>>>>>> 5736c862cdb19be5acc4ab7b3740ba85c243081c
