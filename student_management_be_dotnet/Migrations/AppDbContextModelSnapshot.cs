@@ -49,8 +49,16 @@ namespace student_management_be_dotnet.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
+                    b.Property<string>("Address")
+                        .HasColumnType("longtext");
+
                     b.Property<long>("ClassId")
                         .HasColumnType("bigint");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
@@ -83,8 +91,14 @@ namespace student_management_be_dotnet.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<long>("PhoneNumber")
+                        .HasColumnType("bigint");
+
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<string>("gender")
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 

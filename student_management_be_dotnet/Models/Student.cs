@@ -11,6 +11,11 @@ public class Student
     public string Name { get; set; } = string.Empty; //ko dc trống
 
     [Required]
+    [MaxLength(10)]
+    public string Code { get; set; } = string.Empty; //ko dc trống
+
+
+    [Required]
     [MaxLength(100)]
     public string FirstName { get; set; } = string.Empty; //ko dc trống
 
@@ -36,4 +41,10 @@ public class Student
     public DateTime UpdatedAt { get; set; }
 
     public Class? Class { get; set; }
+
+    public string? Address { get; set; }
+
+    public string? gender { get; set; }
+
+     public long PhoneNumber { get; set; }
 }
