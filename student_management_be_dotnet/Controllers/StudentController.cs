@@ -32,9 +32,12 @@ public class StudentController(AppDbContext appDbContext) : Controller
     {
         var student = appDbContext.Students.Add(new Models.Student
         {
-            ClassId = model.ClassId,
-            Name = model.Name,
+            ClassId = 1,
+            LastName = model.LastName,
+            FirstName = model.FirstName,
+            Code = model.Code,
             Email = model.Email,
+            IdentificationNumber = model.IdentificationNumber,
         });
         await appDbContext.SaveChangesAsync();
 
