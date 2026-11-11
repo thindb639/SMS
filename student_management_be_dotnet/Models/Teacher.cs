@@ -15,12 +15,22 @@ namespace student_management_be_dotnet.Models
 
         private Gender Gender { get; set; }
 
+        public string Code { get; set; } = "";
+        public string Phone { get; set; } = "";
+        public string Email { get; set; } = "";
+        public string Subject { get; set; } = "";
+        public string Degree { get; set; } = "";
+        public DateOnly? JoinDate { get; set; }
+        public string Address { get; set; } = "";
+
+
+        public ICollection<Class>? Class { get; }
+
+
         public string GetBirthDay()
         {
             return this.DateOfBirth?.ToString("dd/MM/yyyy") ?? string.Empty;
         }
-
-        public ICollection<Class>? Class { get; }
     }
 
     public enum Gender : byte
