@@ -1,0 +1,40 @@
+@model student_management_be_dotnet.ViewModels.Classes.ClassCreateViewModel
+
+@{
+    ViewData["Title"] = "Thêm lớp";
+}
+
+<h1>Thêm lớp</h1>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Code" class="form-label">Mã lớp</label>
+        <input asp-for="Code" class="form-control" />
+        <span asp-validation-for="Code" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label">Tên lớp</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="TeacherId" class="form-label">Giáo viên</label>
+        <select asp-for="TeacherId"
+                asp-items="Model.TeacherOptions"
+                class="form-select">
+            <option value="">-- Chưa phân công --</option>
+        </select>
+        <span asp-validation-for="TeacherId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Lưu</button>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

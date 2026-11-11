@@ -1,0 +1,185 @@
+<ul>
+    <li>
+        <link rel="stylesheet" href="listteacher.css">
+
+        <body>
+            <header>
+                <div class="header-inner">
+                    <a href="teacherlist.html" class="brand">TÊN WEBSITE</a>
+
+                    <nav>
+                        <a href="#">Trang chủ</a>
+                        <a href="#">Học viên</a>
+                        <a href="teacherlist.html" class="active">Giáo viên</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Liên hệ</a>
+                    </nav>
+                </div>
+            </header>
+
+            <main>
+                <section id="listPage">
+                    <div class="top-row">
+                        <h1>Danh sách giáo viên</h1>
+                        <button type="button" onclick="showCreate()">+ Thêm giáo viên</button>
+                    </div>
+
+                    <input class="search" type="search" placeholder="Tìm theo tên, mã hoặc môn dạy...">
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Mã GV</th>
+                                    <th>Họ và tên</th>
+                                    <th>Giới tính</th>
+                                    <th>Môn dạy</th>
+                                    <th>Học vị</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (Teacher teacher in Model)
+                                {
+
+                                
+                                    <tr>
+                                        <td><strong>@teacher.Id</strong></td>
+                                        <td>@teacher.FirstName</td>
+                                        <td> @teacher.Gender</td>
+                                        <td>@teacher.Subject</td>
+                                        <td>@teacher.Degree</td>
+                                        <td>@teacher.Phone</td>
+                                        <td>
+                                            <a class="action" href="teacherdetail.html">Xem</a>
+                                            <a class="action" href="#" onclick="showCreate()">Sửa</a>
+                                            <a class="action delete" href="#" onclick="return false;">Xóa</a>
+                                        </td>
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pagination">
+                        <button type="button" disabled>&larr;</button>
+                        <button type="button" class="current">1</button>
+                        <button type="button">2</button>
+                        <button type="button">&rarr;</button>
+                    </div>
+                </section>
+
+                <section id="createPage">
+                    <h2>Thêm giáo viên mới</h2>
+
+                    <form class="form-card" onsubmit="saveTeacher(event)">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="firstName">Họ *</label>
+                                <input id="firstName" name="firstName" type="text" placeholder="Nguyễn Minh" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName">Tên *</label>
+                                <input id="lastName" name="lastName" type="text" placeholder="Khoa" required>
+                            </div>
+
+                            <div class="form-group full">
+                                <label for="teacherCode">Mã giáo viên *</label>
+                                <input id="teacherCode" name="teacherCode" type="text" placeholder="GV005" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="birthDate">Ngày sinh *</label>
+                                <input id="birthDate" name="birthDate" type="date" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="gender">Giới tính</label>
+                                <select id="gender" name="gender">
+                                    <option>Nam</option>
+                                    <option>Nữ</option>
+                                    <option>Khác</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Số điện thoại</label>
+                                <input id="phone" name="phone" type="tel" placeholder="0901 234 567">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input id="email" name="email" type="email" placeholder="teacher@example.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Môn dạy *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">-- Chọn môn --</option>
+                                    <option>HTML/CSS</option>
+                                    <option>JavaScript</option>
+                                    <option>Git &amp; GitHub</option>
+                                    <option>PHP</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="degree">Học vị</label>
+                                <select id="degree" name="degree">
+                                    <option>Cử nhân</option>
+                                    <option>Thạc sĩ</option>
+                                    <option>Tiến sĩ</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group full">
+                                <label for="startDate">Ngày bắt đầu giảng dạy</label>
+                                <input id="startDate" name="startDate" type="date">
+                            </div>
+
+                            <div class="form-group full">
+                                <label for="address">Địa chỉ</label>
+                                <textarea id="address" name="address" rows="3" placeholder="Nhập địa chỉ"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="button-light" type="button" onclick="showList()">
+                                Hủy
+                            </button>
+                            <button type="submit">Thêm giáo viên</button>
+                        </div>
+                    </form>
+                </section>
+            </main>
+
+            <footer>
+                <p>&copy; 2026 Tên Website. All rights reserved.</p>
+            </footer>
+
+            <script>
+                            function showCreate() {
+                                document.getElementById("listPage").style.display = "none";
+                                document.getElementById("createPage").style.display = "block";
+                            }
+
+                            function showList() {
+                                document.getElementById("createPage").style.display = "none";
+                                document.getElementById("listPage").style.display = "block";
+                            }
+
+                            function saveTeacher(event) {
+                                event.preventDefault();
+                                alert("Đây là giao diện mẫu. Thông tin giáo viên chưa được lưu.");
+                                showList();
+                            }
+            </script>
+        </body>
+
+    </html>
+</li>
+</ul>
