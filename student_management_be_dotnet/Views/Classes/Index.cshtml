@@ -21,6 +21,11 @@
     <div class="alert alert-success">@success</div>
 }
 
+@if (TempData["Error"] is string error)
+{
+    <div class="alert alert-danger">@error</div>
+}
+
 <form asp-action="Index" method="get" class="classes-filter row g-2 align-items-end mb-3">
     <div class="col-md-4">
         <label asp-for="Filter.Search" class="form-label"></label>
@@ -50,6 +55,7 @@ else
                 <th>Mã lớp</th>
                 <th>Tên lớp</th>
                 <th>Giáo viên</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -60,6 +66,13 @@ else
                     <td>@c.Code</td>
                     <td>@c.Name</td>
                     <td>@(c.Teacher is null ? "—" : $"{c.Teacher.FirstName} {c.Teacher.LastName}")</td>
+                    <td class="text-end text-nowrap">
+                        <a asp-action="Edit" asp-route-id="@c.Id" class="btn btn-sm btn-outline-secondary">Sửa</a>
+                        <form asp-action="Delete" asp-route-id="@c.Id" method="post" class="d-inline class-delete-form"
+                              data-class-code="@c.Code">
+                            <button type="submit" class="btn btn-sm btn-outline-danger">Xóa</button>
+                        </form>
+                    </td>
                 </tr>
             }
         </tbody>
