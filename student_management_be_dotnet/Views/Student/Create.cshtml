@@ -4,189 +4,183 @@
     <li>
         <link rel="stylesheet" href="create.css">
         
-    <body>
-    <header>
-        <h1>TÊN WEBSITE</h1>
-    </header>
-     <nav class="navbar">
+        <body>
+            <header>
+                <h1>TÊN WEBSITE</h1>
+            </header>
+            <nav class="navbar">
 
-        <a href="#">Trang chủ</a>
-        <a href="#">Danh mục</a>
-        <a href="#">Blog</a>
-        <a href="#" class="active">Học viên</a>
-        <a href="#">Liên hệ</a>
+                <a href="#">Trang chủ</a>
+                <a href="#">Danh mục</a>
+                <a href="#">Blog</a>
+                <a href="#" class="active">Học viên</a>
+                <a href="#">Liên hệ</a>
 
-    </nav>
-</header>
-
-
-<main class="container">
-
-    <h1>Thêm học viên mới</h1>
-
-    <div class="form-box">
-
-        <form asp-action="Create" method="post">
-
-            <!-- Họ và tên -->
-            <div class="row">
-
-                <div class="form-group">
-                    <label> Họ (Last name)</label>
-                    <input asp-for="LastName" type="text" placeholder="Nguyễn">
-                </div>
-
-                <div class="form-group">
-                    <label>Tên (First name)</label>
-                    <input asp-for="FirstName" type="text" placeholder="Văn A">
-                </div>
-
-            </div>
+            </nav>
+        </header>
 
 
-            <!-- Mã học viên -->
-            <div class="form-group">
+        <main class="container">
 
-                <label>Mã học viên (Code)</label>
+            <h1>Thêm học viên mới</h1>
 
-                <input asp-for="Code"
-                    type="text"
-                    placeholder="HV001"
-                >
+            <div class="form-box">
 
-            </div>
+                <form asp-action="Create" method="post">
 
+                    <!-- Họ và tên -->
+                    <div class="row">
 
-            <!-- Ngày sinh + giới tính -->
-            <div class="row">
+                        <div class="form-group">
+                            <label> Họ (Last name)</label>
+                            <input asp-for="LastName" type="text" placeholder="Nguyễn">
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
 
-                <div class="form-group">
-
-                    <label>Ngày sinh</label>
-
-                    <input asp-for="DateOfBirth" type="date">
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>Giới tính</label>
-
-                    <div class="gender">
-
-                        <label>
-                            <input asp-for="gender"  type="radio" value="1">
-                            Nam
-                        </label>
-
-                        <label>
-                            <input asp-for="gender" type="radio" value="2">
-                            Nữ
-                        </label>
-
-                        <label>
-                            <input asp-for="gender" type="radio" value="3">
-                            Khác
-                        </label>
+                        <div class="form-group">
+                            <label>Tên (First name)</label>
+                            <input asp-for="FirstName" type="text" placeholder="Văn A">
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
 
                     </div>
 
+
+                    <!-- Mã học viên -->
+                    <div class="form-group">
+
+                        <label>Mã học viên (Code)</label>
+                        <input asp-for="Code" type="text" placeholder="HV001">
+                        <span asp-validation-for="Code" class="text-danger"></span>
+                
+                    </div>
+
+
+                    <!-- Ngày sinh + giới tính //chặn người dùng gõ bằng tay: onkeydown, onclick -->
+                    <div class="row">
+
+                        <div class="form-group">
+                            <label>Ngày sinh</label>
+
+                            <input asp-for="DateOfBirth" type="date" asp-format="{0:yyyy-MM-dd}"
+                                   onkeydown="return false;" onclick="this.showPicker()" />
+                   
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>Giới tính</label>
+
+                            <div class="gender">
+
+                                <label>
+                                    <input asp-for="gender" type="radio" value="1">
+                                    Nam
+                                </label>
+
+                                <label>
+                                    <input asp-for="gender" type="radio" value="2">
+                                    Nữ
+                                </label>
+
+                                <label>
+                                    <input asp-for="gender" type="radio" value="3">
+                                    Khác
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Số điện thoại -->
+                    <div class="form-group">
+
+                        <label>Số điện thoại</label>
+
+                        <input asp-for="PhoneNumber" type="text" placeholder="0901 234 567">
+
+                    </div>
+
+                    <!-- Số căn cước công dân -->
+                    <div class="form-group">
+
+                        <label>Số căn cước công dân</label>
+
+                        <input asp-for="IdentificationNumber" type="text" placeholder="0901 234 567">
+                    <span asp-validation-for="IdentificationNumber" class="text-danger"></span>
+
+
+                    </div>
+
+
+                    <!-- Email -->
+                    <div class="form-group">
+
+                        <label>Email</label>
+
+                        <input asp-for="Email" type="email" placeholder="student@example.com">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+
+
+                    </div>
+
+
+                    <!-- Địa chỉ -->
+                    <div class="form-group">
+
+                        <label>Địa chỉ</label>
+
+                        <textarea asp-for="Address"
+                                  placeholder="Số nhà, đường, phường/xã, quận/huyện..."></textarea>
+
+                    </div>
+
+
+                    <!-- Lớp -->
+                    <div class="form-group">
+
+                        <label>Lớp</label>
+
+                        <select asp-for="ClassId">
+
+                            <option>-- Chọn lớp --</option>
+                            <option value="1">Tin 1</option>
+                            <option value="2">Tin 2</option>
+                            <<option value="3">Tin 3</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Button -->
+                        <div class="buttons">
+
+                            <button type="button" class="buttons-cancel">
+                                Hủy
+                            </button>
+
+                            <button type="submit" class="buttons-submit">
+                                Thêm học viên
+                            </button>
+                        </div>
+                    </form>
+
                 </div>
 
-            </div>
-
-
-            <!-- Số điện thoại -->
-            <div class="form-group">
-
-                <label>Số điện thoại</label>
-
-                <input asp-for="PhoneNumber"
-                    type="text"
-                    placeholder="0901 234 567"
-                >
-
-            </div>
-
-             <!-- Số căn cước công dân -->
-            <div class="form-group">
-
-                <label>Số căn cước công dân</label>
-
-                <input asp-for="IdentificationNumber"
-                    type="text"
-                    placeholder="0901 234 567"
-                >
-
-            </div>
-
-
-            <!-- Email -->
-            <div class="form-group">
-
-                <label>Email</label>
-
-                <input asp-for="Email"
-                    type="email"
-                    placeholder="student@example.com"
-                >
-
-            </div>
-
-
-            <!-- Địa chỉ -->
-            <div class="form-group">
-
-                <label>Địa chỉ</label>
-
-                <textarea asp-for="Address"
-                    placeholder="Số nhà, đường, phường/xã, quận/huyện..."
-                ></textarea>
-
-            </div>
-
-
-            <!-- Lớp -->
-            <div class="form-group">
-
-                <label>Lớp</label>
-
-                <select>
-
-                    <option>-- Chọn lớp --</option>
-                    <option value="1" >Tin 1</option>
-                    <option value="2" >Tin 2</option>
-                    <<option value="3" >Tin 3</option>
-
-                </select>
-
-            </div>
-
-
-            <!-- Button -->
-            <div class="buttons">
-
-                <button type="button" class="buttons-cancel">
-                    Hủy
-                </button>
-
-                <button type="submit" class="buttons-submit">
-                    Thêm học viên
-                </button>
-            </div>
-        </form>
-
-    </div>
-
-</main>
-    </div>
-    <footer>
-        © 2026 Tên Website. All rights reserved.
-    </footer>
-<script src="script.js"></script>
+            </main>
+        </div>
+        <footer>
+            © 2026 Tên Website. All rights reserved.
+        </footer>
+        <script src="script.js"></script>
 
     
-</body>
-    </li>
+    </body>
+</li>
 </ul>

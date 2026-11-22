@@ -1,3 +1,6 @@
+@using student_management_be_dotnet.ViewModels.Student
+@model StudentIndexViewModel
+
 <ul>
     <li>
         <link rel="stylesheet" href="Create.cshtml">
@@ -23,7 +26,16 @@
                 </div>
 
                 <div class="search-box-wrap">
-                    <input type="text" class="form-control" placeholder="Tìm theo tên hoặc mã học viên...">
+                    <form asp-action="Index" method="get" class="row g-2 align-items-end mb-3">
+    <div class="col-md-4">
+        <label asp-for="studentFilter.Search" class="form-label"></label>
+        <input asp-for="studentFilter.Search" class="form-control" placeholder="Tìm theo tên hoặc mã lớp" />
+    </div>
+    
+    <div class="col-md-3">
+        <button type="submit" class="btn btn-outline-primary">Search</button>
+    </div>
+</form>
                 </div>
 
                 <div class="table-container">
@@ -40,17 +52,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach(Student student in Model){
+                            @foreach(Student student in Model.Students){
                             <tr>
                                 <td><strong>@student.Id</strong></td>
                                 <td>
                                     <div class="user-cell">
                                         <img src="https://scontent.fhan14-4.fna.fbcdn.net/v/t1.15752-9/857315562_4746331889025129_1226665753508552667_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1536&ctp=s2048x1536&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFrB8FdZhmXssux7err8ybF-3awjW4qLxD7drCNbiovEHufA7civHzmYpnTHHZUKIeIiMellRg63BA0spss6bA7&_nc_ohc=7AXpFEeLH4sQ7kNvwEp88W2&_nc_oc=AdpF2A6LmQI26eW4lIKouG1dS8X0RKMIMoxCA_jDCDsX5vR1ilhCt7-s4PZcLCO2dvg&_nc_zt=23&_nc_ht=scontent.fhan14-4.fna&_nc_ss=7b2a8&oh=03_Q7cD6wG_5UstwMOj9uzZpnlqEjASKbvnJYM6-V_m2OFcjTpP3A&oe=6B08446D"
                                              alt="Avatar" class="user-avatar">
-                                        <span>@student.Name</span>
+                                        <span>@student.GetFullName()</span>
                                     </div>
                                 </td>
-                                <td>@student.DateOfBirth</td>
+                                <td>@student.GetBirthDay()</td>
                                 <td><span class="badge badge">@student.gender</span></td>
                                 <td>@student.Class?.Name</td>
                                 <td>0901 234 567</td>

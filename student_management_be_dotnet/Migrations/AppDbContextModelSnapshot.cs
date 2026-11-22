@@ -64,7 +64,7 @@ namespace student_management_be_dotnet.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("date");
 
                     b.Property<string>("Email")
                         .IsRequired()

@@ -1,30 +1,32 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace student_management_be_dotnet.Models;
-
-public class Teacher
+namespace student_management_be_dotnet.Models
 {
-    public long Id { get; set; }
 
-    public string FirstName { get; set; } = string.Empty;
+    public class Teacher
+    {
+        public long Id { get; set; }
 
-    public string LastName { get; set;} = string.Empty;
+        public string FirstName { get; set; } = string.Empty;
 
-    public DateOnly? DateOfBirth {get; set;} 
+        public string LastName { get; set; } = string.Empty;
 
-    private Gender Gender {get;set;}
+        public DateOnly? DateOfBirth { get; set; }
 
-    public string GetBirthDay()
-{
-   return this.DateOfBirth?.ToString("dd/MM/yyyy") ?? string.Empty;
-}
+        private Gender Gender { get; set; }
 
-    public ICollection<Class>? Class {get;}
-}
+        public string GetBirthDay()
+        {
+            return this.DateOfBirth?.ToString("dd/MM/yyyy") ?? string.Empty;
+        }
 
-public enum Gender : byte
-{
-    Male = 1,
-    Female = 2,
-    Unknown = 3
+        public ICollection<Class>? Class { get; }
+    }
+
+    public enum Gender : byte
+    {
+        Male = 1,
+        Female = 2,
+        Unknown = 3
+    }
 }
