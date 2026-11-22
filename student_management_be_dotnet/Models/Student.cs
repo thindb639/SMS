@@ -11,12 +11,18 @@ public class Student
     public string Name { get; set; } = string.Empty; //ko dc trống
 
     [Required]
+    [MaxLength(10)]
+    public string Code { get; set; } = string.Empty; //ko dc trống
+
+
+    [Required]
     [MaxLength(100)]
     public string FirstName { get; set; } = string.Empty; //ko dc trống
 
     [Required]
     [MaxLength(100)]
     public string LastName { get; set; } = string.Empty; //ko dc trống
+
 
     [Required]
     [MaxLength(255)]
@@ -29,11 +35,27 @@ public class Student
 
     public long ClassId { get; set; }
 
-    public DateTime DateOfBirth { get; set; }
+    public DateOnly DateOfBirth { get; set; }
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
     public DateTime UpdatedAt { get; set; }
 
     public Class? Class { get; set; }
+
+    public string? Address { get; set; }
+
+    public string? gender { get; set; }
+
+     public long PhoneNumber { get; set; }
+
+     public string GetFullName()
+    {
+        return LastName + " " + FirstName;
+    } 
+
+    public string GetBirthDay()
+    {
+;        return this.DateOfBirth.ToString("dd/MM/yyyy") ?? string. Empty;
+    }
 }

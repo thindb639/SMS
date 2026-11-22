@@ -1,0 +1,250 @@
+/* ===== Font chung ===== */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap');
+
+/* ===== Reset & Toàn trang ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f6f6f9;
+    font-family: 'Be Vietnam Pro', Arial, sans-serif;
+    color: #2b2b3a;
+}
+
+/* Ẩn khối header chứa chữ TÊN WEBSITE */
+header {
+    display: none;
+}
+
+/* ===== Thanh Menu trên cùng ===== */
+.header {
+    height: 42px;
+    background-color: #3f3f58;
+}
+
+.navbar {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+}
+
+.navbar a {
+    height: 100%;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    color: #840feb;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    background-color: #555577;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* ===== Khung Form thêm học viên ===== */
+.container {
+    width: 100%;
+    max-width: 580px; /* Thu hẹp độ rộng vừa vặn như ảnh mẫu */
+    margin: 36px auto 60px auto;
+    padding: 0 16px;
+}
+
+.container h1 {
+    margin: 0 0 22px 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a24;
+}
+
+.form-box {
+    background-color: #ffffff;
+    border: 1px solid #e2e2ec;
+    border-radius: 12px;
+    padding: 30px 28px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+/* Bố cục 2 cột (Họ & Tên, Ngày sinh & Giới tính) */
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* Nhãn và khoảng cách trường nhập */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group > label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2b2b3a;
+}
+
+/* Ô input, select và textarea */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    border: 1px solid #e0e0ea;
+    border-radius: 6px;
+    background-color: #fafafc;
+    padding: 10px 12px;
+    font-size: 14px;
+    color: #333333;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #5d5c88;
+    background-color: #ffffff;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+    height: 40px;
+}
+
+textarea {
+    height: 72px;
+    resize: vertical;
+}
+
+/* Phần chọn Giới tính */
+.gender {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.gender label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    font-size: 13px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.gender input {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+/* Cụm nút bấm cuối form */
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.buttons button {
+    height: 38px;
+    padding: 0 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.buttons button:hover {
+    opacity: 0.9;
+}
+
+.buttons-cancel {
+    background-color: #ececf2;
+    color: #555566;
+}
+
+.buttons-submit {
+    background-color: #4b4b68;
+    color: #ffffff;
+}
+
+/* ===== Footer (nếu có dùng) ===== */
+footer {
+    display: none; /* Ẩn để tránh tình trạng thanh tím đè lên bảng */
+}
+/* Đổi màu toàn bộ thanh menu thành màu tím đậm */
+nav, 
+.header, 
+.navbar {
+    background-color: #4b4b68 !important; /* Màu tím chủ đạo */
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important; /* Nếu muốn menu nằm góc trái như mẫu */
+    margin: 0 !important;
+    padding: 0 20px !important;
+    width: 100% !important;
+}
+
+/* Đảm bảo danh sách các nút menu dàn hàng ngang */
+nav ul {
+    display: flex !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100% !important;
+    background: transparent !important;
+}
+
+nav li {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+}
+
+/* Chữ màu trắng/xám sáng trên nền tím */
+nav li a,
+.navbar a {
+    color: #e2e2ec !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    padding: 0 16px !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+}
+
+/* Mục đang chọn (Học viên) hoặc khi rê chuột vào */
+nav li a:hover,
+nav li a.active,
+.navbar a:hover,
+.navbar a.active {
+    background-color: #5d5c88 !important; /* Tím sáng hơn một chút để nổi bật tab */
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}

@@ -1,156 +1,159 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 120px;
-}
-
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
-}
-
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
-}
-/* ===== Font & reset chung ===== */
-        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap');
-
-        /* ===== Font & reset chung ===== */
-        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap');
+/* ===== Font & Reset chung ===== */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+    font-size: 14px;
+    height: 100%;
 }
 
 body {
-    background-color: #f5f6fa;
+    background-color: #f4f6f9 !important;
     color: #2f3542;
-    min-height: 100vh;
+    min-height: 100vh !important; /* Xóa triệt để lỗi 200vh làm vỡ chân trang */
     display: flex;
     flex-direction: column;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* ===== Xử lý menu con và khử dấu chấm tròn • ===== */
+ul, ol, li {
+    list-style: none !important; /* Khử sạch các dấu chấm tròn vỡ layout */
+    margin: 0;
+    padding: 0;
 }
 
 .header {
     background-color: #484b65;
     color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+    width: 100%;
 }
 
 .header-container {
-    max-width: 1050px;
+    width: 100%;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 52px;
 }
 
 .brand-logo {
-    font-size: 1.1rem;
-    font-weight: 800;
+    font-size: 1rem;
+    font-weight: 700;
     letter-spacing: 0.5px;
-    color: #ffffff;
+    color: #ffffff !important;
     text-decoration: none;
-    margin-right: 35px;
+    white-space: nowrap;
 }
 
 .navbar {
-    display: flex;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 12px;
     height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar a {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    padding: 0 16px;
-    color: #cfd2dc;
+    padding: 6px 14px;
+    color: #cfd2dc !important;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
+    border-radius: 4px;
     transition: all 0.2s;
+    white-space: nowrap;
 }
 
 .navbar a:hover {
-    color: #ffffff;
+    color: #ffffff !important;
     background-color: rgba(255, 255, 255, 0.08);
 }
 
 .navbar a.active {
-    color: #ffffff;
-    background-color: #575a7b;
+    color: #ffffff !important;
+    background-color: #575a7b !important;
     font-weight: 600;
 }
 
+/* ===== Khung chứa chính & Card bảng ===== */
 .container {
-    max-width: 950px;
-    width: 100%;
-    margin: 35px auto;
-    padding: 0 20px;
+    width: 92% !important;
+    max-width: 1100px !important; /* Khung vừa vặn, không quá to cũng không bị bóp nhỏ */
+    margin: 20px auto !important;
+    padding: 0 !important;
     flex: 1;
+}
+
+/* Card trắng chứa tiêu đề và bảng */
+.container > div,
+.content-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
 }
 
 .page-top-action {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
+    width: 100%;
 }
 
 .page-title {
-    font-size: 1.45rem;
+    font-size: 1.35rem;
     font-weight: 700;
     color: #222638;
 }
 
-.btn {
-    display: inline-block;
-    padding: 9px 20px;
-    font-size: 0.9rem;
+/* Nút thêm mới */
+.btn,
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    font-size: 0.85rem;
     border-radius: 6px;
     cursor: pointer;
     border: none;
     font-weight: 500;
     text-decoration: none;
-    text-align: center;
+    background-color: #4b4f6e !important;
+    color: #ffffff !important;
+    white-space: nowrap;
     transition: 0.2s ease;
 }
 
-.btn-primary {
-    background-color: #4b4f6e;
-    color: #ffffff;
-}
-
 .btn-primary:hover {
-    background-color: #3b3e58;
+    background-color: #3b3e58 !important;
 }
 
+/* Ô tìm kiếm */
 .search-box-wrap {
-    margin-bottom: 18px;
+    margin-bottom: 16px;
+    width: 100%;
 }
 
 .form-control {
     width: 100%;
-    max-width: 320px;
-    padding: 9px 12px;
+    max-width: 340px;
+    padding: 8px 12px;
     font-size: 0.88rem;
     border: 1px solid #d1d5db;
     border-radius: 6px;
@@ -160,69 +163,100 @@ body {
 
 .form-control:focus {
     border-color: #565977;
+    box-shadow: 0 0 0 2px rgba(86, 89, 119, 0.15);
 }
 
+/* ===== Bảng dữ liệu (Kéo đều 100%, không rớt dòng) ===== */
 .table-container {
     background: #ffffff;
     border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    width: 100% !important;
 }
 
 .custom-table {
-    width: 100%;
+    width: 100% !important;
     border-collapse: collapse;
     text-align: left;
 }
 
 .custom-table thead {
-    background-color: #565977;
+    background-color: #565977 !important;
     color: #ffffff;
 }
 
-.custom-table th, 
+.custom-table th {
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    white-space: nowrap !important;
+    color: #ffffff;
+}
+
 .custom-table td {
-    padding: 13px 18px;
-    font-size: 0.88rem;
+    padding: 10px 14px;
+    font-size: 0.85rem;
     vertical-align: middle;
+    white-space: nowrap !important; /* Giữ sđt và xem chi tiết trên 1 dòng */
+    color: #333d47;
 }
 
 .custom-table tbody tr {
     border-bottom: 1px solid #edf0f5;
+    transition: background-color 0.15s;
+}
+
+.custom-table tbody tr:last-child {
+    border-bottom: none;
 }
 
 .custom-table tbody tr:hover {
     background-color: #fbfbfd;
 }
 
+/* Khối Avatar & Họ tên */
 .user-cell {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 
 .user-avatar {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     object-fit: cover;
+    border: 1px solid #e1e4ea;
 }
 
+/* Giới tính badge */
 .badge {
     display: inline-block;
-    padding: 3px 10px;
+    padding: 2px 8px;
     border-radius: 12px;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 600;
 }
 
-.badge-nam { background-color: #e3effd; color: #1971c2; }
-.badge-nu  { background-color: #fde8ef; color: #d6336c; }
+.badge-nam { 
+    background-color: #e3effd; 
+    color: #1971c2; 
+}
 
+.badge-nu { 
+    background-color: #fde8ef; 
+    color: #d6336c; 
+}
+
+/* Link Xem chi tiết */
 .view-detail-link {
     color: #495057;
     text-decoration: none;
     font-weight: 500;
+    font-size: 0.82rem;
+    white-space: nowrap;
 }
 
 .view-detail-link:hover {
@@ -230,23 +264,20 @@ body {
     text-decoration: underline;
 }
 
-.text-right {
-    text-align: right;
-}
-
+/* Phân trang */
 .pagination {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 6px;
-    margin-top: 25px;
+    margin: 20px 0;
 }
 
 .page-btn {
     border: 1px solid #dee2e6;
     background: #ffffff;
-    padding: 6px 12px;
-    font-size: 0.85rem;
+    padding: 5px 11px;
+    font-size: 0.82rem;
     border-radius: 4px;
     cursor: pointer;
 }
@@ -257,16 +288,90 @@ body {
     border-color: #565977;
 }
 
-.page-btn:disabled {
-    cursor: not-allowed;
-    opacity: 0.6;
-}
-
+/* Footer chân trang */
 .footer {
     background-color: #484b65;
     color: #ffffff;
     text-align: center;
-    padding: 14px 0;
-    font-size: 0.85rem;
+    padding: 12px 0;
+    font-size: 0.8rem;
     margin-top: auto;
+}
+/* 1. Phóng to chữ TÊN WEBSITE */
+.header-container > a:first-child,
+.header > div > a:first-child,
+.brand-logo,
+.site-logo {
+    font-size: 1.35rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.8px !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 2. Thanh bao ngoài màu tím than (tự co dãn vừa khít chiều cao) */
+.header,
+.header-container {
+    height: auto !important;
+    min-height: 56px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 24px !important;
+    overflow: hidden !important; /* Cắt phần bị lồi xuống mép dưới */
+}
+
+/* 3. Đưa toàn bộ danh sách tùy chọn (Trang chủ, Danh mục...) vào CHÍNH GIỮA */
+.header ul,
+.header-container ul,
+.navbar,
+.site-nav-list {
+    margin: 0 auto !important; /* Canh giữa hoàn toàn so với 2 mép */
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    list-style: none !important;
+    height: 100% !important;
+    gap: 4px !important;
+}
+
+.header li,
+.header-container li {
+    display: inline-flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Canh các nút link nằm phẳng, vừa vặn bên trong thanh tím */
+.header ul a,
+.header-container ul a,
+.navbar a,
+.site-nav-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 10px 18px !important;
+    font-size: 0.92rem !important;
+    font-weight: 500 !important;
+    color: #e2e4ec !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+}
+
+.header ul a:hover,
+.navbar a:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.header ul a.active,
+.navbar a.active {
+    background-color: #575a7b !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
 }
