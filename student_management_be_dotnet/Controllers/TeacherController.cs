@@ -1,11 +1,14 @@
 using System.Data.Common;
 using System.Reflection.Metadata.Ecma335;
+using AspNetCoreGeneratedDocument;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using student_management_be_dotnet.Data;
 using student_management_be_dotnet.Models;
 
-namespace student_management_be_dotnet;
+namespace student_management_be_dotnet.Controllers;
+
 
 public class TeacherController(AppDbContext appdbContext) : Controller
 {
@@ -19,11 +22,28 @@ public class TeacherController(AppDbContext appdbContext) : Controller
         return View(teachers);
 
     }
-    public async Task<IActionResult> Creat()
 
+    public IActionResult Create()
     {
 
         return View();
+    }
+    // Đưa data vào
+    [HttpPost("giao-vien/tao-giao-vien")]
+    public async Task<IActionResult> Create(TeacherCreateViewModel model)
+    {
+        var teacher = new Teacher
+        {
+            FirstName = model.FirstName,
+            LastName = model.LastName,
+            Subject = model.Subject,
+
+        };
+        await appdbContext.SaveChangesAsync();
+        TempData["Success"]="Đã thêm giáo viên";
+        return RedirectToAction(nameof(Index));
+
+
 
     }
 

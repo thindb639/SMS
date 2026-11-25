@@ -1,40 +1,93 @@
-@model student_management_be_dotnet.ViewModels.Classes.ClassCreateViewModel
+@model student_management_be_dotnet.Models.TeacherCreateViewModel
 
 @{
     ViewData["Title"] = "Thêm lớp";
 }
 
-<h1>Thêm lớp</h1>
+<h1>Thêm giáo viên</h1>
 
-<form asp-action="Create" method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<form asp-action="Create" method="post"> 
+    <div class=" form-grid">
+        <div class="form-group">
+        
+            <label for="firstName">Họ *</label>
+            <input id="firstName" name="firstName" type="text" placeholder="Nguyễn Minh" required>
+        </div>
 
-    <div class="mb-3">
-        <label asp-for="Code" class="form-label">Mã lớp</label>
-        <input asp-for="Code" class="form-control" />
-        <span asp-validation-for="Code" class="text-danger"></span>
+        <div class="form-group">
+            <label for="lastName">Tên *</label>
+            <input id="lastName" name="lastName" type="text" placeholder="Khoa" required>
+        </div>
+
+        <div class="form-group full">
+            <label for="teacherCode">Mã giáo viên *</label>
+            <input id="teacherCode" name="teacherCode" type="text" placeholder="GV005" required>
+        </div>
+
+        <div class="form-group">
+            <label for="birthDate">Ngày sinh *</label>
+            <input id="birthDate" name="birthDate" type="date" required>
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Giới tính</label>
+            <select id="gender" name="gender">
+                <option>Nam</option>
+                <option>Nữ</option>
+                <option>Khác</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Số điện thoại</label>
+            <input id="phone" name="phone" type="tel" placeholder="0901 234 567">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" placeholder="teacher@example.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="subject">Môn dạy *</label>
+            <select id="subject" name="subject" required>
+                <option value="">-- Chọn môn --</option>
+                <option>HTML/CSS</option>
+                <option>JavaScript</option>
+                <option>Git &amp; GitHub</option>
+                <option>PHP</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="degree">Học vị</label>
+            <select id="degree" name="degree">
+                <option>Cử nhân</option>
+                <option>Thạc sĩ</option>
+                <option>Tiến sĩ</option>
+            </select>
+        </div>
+
+        <div class="form-group full">
+            <label for="startDate">Ngày bắt đầu giảng dạy</label>
+            <input id="startDate" name="startDate" type="date">
+        </div>
+
+        <div class="form-group full">
+            <label for="address">Địa chỉ</label>
+            <textarea id="address" name="address" rows="3" placeholder="Nhập địa chỉ"></textarea>
+        </div>
     </div>
 
-    <div class="mb-3">
-        <label asp-for="Name" class="form-label">Tên lớp</label>
-        <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
+    <div class="form-actions">
+        <button class="button-light" type="button">
+            Hủy
+        </button>
+        <button type="submit">Thêm giáo viên</button>
     </div>
-
-    <div class="mb-3">
-        <label asp-for="TeacherId" class="form-label">Giáo viên</label>
-        <select asp-for="TeacherId"
-                asp-items="Model.TeacherOptions"
-                class="form-select">
-            <option value="">-- Chưa phân công --</option>
-        </select>
-        <span asp-validation-for="TeacherId" class="text-danger"></span>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Lưu</button>
-    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
 </form>
 
-@section Scripts {
+@section Scripts
+{
     <partial name="_ValidationScriptsPartial" />
 }
