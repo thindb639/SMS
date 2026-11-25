@@ -11,8 +11,8 @@ using student_management_be_dotnet.Data;
 namespace student_management_be_dotnet.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20261106090724_AddTeacherInfo")]
-    partial class AddTeacherInfo
+    [Migration("20261111112851_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -66,6 +66,21 @@ namespace student_management_be_dotnet.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)");
 
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("IdentificationNumber")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -90,8 +105,24 @@ namespace student_management_be_dotnet.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<DateTime?>("DateOfBirth")
                         .HasColumnType("date");
+
+                    b.Property<string>("Degree")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -100,7 +131,18 @@ namespace student_management_be_dotnet.Migrations
                     b.Property<byte>("Gender")
                         .HasColumnType("tinyint unsigned");
 
+                    b.Property<DateTime?>("JoinDate")
+                        .HasColumnType("date");
+
                     b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Subject")
                         .IsRequired()
                         .HasColumnType("longtext");
 

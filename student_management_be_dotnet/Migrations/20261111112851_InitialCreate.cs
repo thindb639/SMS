@@ -7,7 +7,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace student_management_be_dotnet.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateTablable : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,24 +16,31 @@ namespace student_management_be_dotnet.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Teacher",
+                name: "Teachers",
                 columns: table => new
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     FirstName = table.Column<string>(type: "longtext", nullable: false),
                     LastName = table.Column<string>(type: "longtext", nullable: false),
-                    DateOfBirth = table.Column<DateOnly>(type: "date", nullable: true),
-                    Gender = table.Column<byte>(type: "tinyint unsigned", nullable: false)
+                    DateOfBirth = table.Column<DateTime>(type: "date", nullable: true),
+                    Gender = table.Column<byte>(type: "tinyint unsigned", nullable: false),
+                    Code = table.Column<string>(type: "longtext", nullable: false),
+                    Phone = table.Column<string>(type: "longtext", nullable: false),
+                    Email = table.Column<string>(type: "longtext", nullable: false),
+                    Subject = table.Column<string>(type: "longtext", nullable: false),
+                    Degree = table.Column<string>(type: "longtext", nullable: false),
+                    JoinDate = table.Column<DateTime>(type: "date", nullable: true),
+                    Address = table.Column<string>(type: "longtext", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Teacher", x => x.Id);
+                    table.PrimaryKey("PK_Teachers", x => x.Id);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Class",
+                name: "Classes",
                 columns: table => new
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
@@ -44,11 +51,11 @@ namespace student_management_be_dotnet.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Class", x => x.Id);
+                    table.PrimaryKey("PK_Classes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Class_Teacher_TeacherId",
+                        name: "FK_Classes_Teachers_TeacherId",
                         column: x => x.TeacherId,
-                        principalTable: "Teacher",
+                        principalTable: "Teachers",
                         principalColumn: "Id");
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
@@ -60,7 +67,10 @@ namespace student_management_be_dotnet.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
+                    FirstName = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
+                    LastName = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     Email = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    IdentificationNumber = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
                     ClassId = table.Column<long>(type: "bigint", nullable: false),
                     DateOfBirth = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
@@ -70,17 +80,17 @@ namespace student_management_be_dotnet.Migrations
                 {
                     table.PrimaryKey("PK_Students", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Students_Class_ClassId",
+                        name: "FK_Students_Classes_ClassId",
                         column: x => x.ClassId,
-                        principalTable: "Class",
+                        principalTable: "Classes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Class_TeacherId",
-                table: "Class",
+                name: "IX_Classes_TeacherId",
+                table: "Classes",
                 column: "TeacherId");
 
             migrationBuilder.CreateIndex(
@@ -102,10 +112,10 @@ namespace student_management_be_dotnet.Migrations
                 name: "Students");
 
             migrationBuilder.DropTable(
-                name: "Class");
+                name: "Classes");
 
             migrationBuilder.DropTable(
-                name: "Teacher");
+                name: "Teachers");
         }
     }
 }
